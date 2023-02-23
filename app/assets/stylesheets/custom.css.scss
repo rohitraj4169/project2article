@@ -1,16 +1,19 @@
 @import 'bootstrap/dist/css/bootstrap';
 .navbar {
 
-background-color: #FDF6EA !important;
-
+background-color: black !important;
+margin-bottom:30px
 }
 
+.nav-link{
+	color:white !important;
+}
  
 
 .navbar-brand {
 
 font-size: 3rem;
-
+color:white !important;
 }
 
  
