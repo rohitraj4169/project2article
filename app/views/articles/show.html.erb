@@ -1,6 +1,49 @@
-<h1> Showing Article details</h1>
-<p> <strong>Title:</strong> <%=@article.title %></p>
-<p> <strong>Description:</strong> <%=@article.description %></p>
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Delete', article_path(@article), method: :delete, data:{confirm:"Are You Sure to Delete ?"}%> |
-<%= link_to 'Back Article Listing Page', articles_path %>
+
+<div class="w-100 row align-items-center breadcrumbb ml-0 mb-5">
+    <div class="offset-md-3 col-md-5 text-center">
+          <h1 class="text-center mt-4"> Showing Article Details </h1>
+    </div>
+    <div class="col-md-4 text-right"> 
+        <span>
+            <span class="breadcrumb-item"><%= link_to 'Home', root_path %></span>
+		    <span class="breadcrumb-item"><%= link_to 'Articles', articles_path %></span>
+		    <span class="breadcrumb-item active" aria-current="page">Show Article</span>
+        <span>
+    </div>
+ </div>
+<div class="container ">
+    <%=render 'layouts/message' %>
+        <div class="card shadow mb-5 bg-white rounded text-center mb-5">
+            <div class="card-header text-left">
+				<strong>Title:</strong> <%=@article.title %>
+			</div>
+            <div class="card-body">
+                <div class="card-text text-left">
+                    <strong>Description:</strong><%= simple_format(@article.description) %>
+                </div>
+                <p>
+                    <button type="button" class="btn btn-outline-success"><%=link_to 'Edit', edit_article_path(@article)%> </button>
+                    <button type="button" class="btn btn-outline-danger"><%=link_to 'Delete', article_path(@article), method: :delete, data:{confirm:"Are You Sure to Delete ?"}%> </button>
+                    <button type="button" class="btn btn-outline-success"><%=link_to 'Back', articles_path%> </button>
+                </p>
+                        
+            </div>
+            <div class="card-footer text-muted">
+					<p> Created <%= time_ago_in_words(@article.created_at) %> ago, Edited <%= time_ago_in_words(@article.updated_at) %> ago</p>
+				</div>
+        </div>
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+

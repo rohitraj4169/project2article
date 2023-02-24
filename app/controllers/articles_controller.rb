@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
 	def create
 		@article=Article.new(params_article_require)
 		if @article.save
-			flash[:notice]="Article Was Created Successfully"
+			flash[:notice]="Article  Created Successfully"
 			redirect_to @article
 		else
 			render 'new'
@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
 	end
 	def update
 		if @article.update(params_article_require)
-			flash[:notice]="Article Was Updated Successfully"
+			flash[:notice]="Article  Updated Successfully"
 			redirect_to @article
 		else
 			render 'edit'
