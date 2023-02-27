@@ -29,7 +29,7 @@
                         
             </div>
             <div class="card-footer text-muted">
-					<p> Created <%= time_ago_in_words(@article.created_at) %> ago, Edited <%= time_ago_in_words(@article.updated_at) %> ago</p>
+					<p> Created By <%= @article.user.username if @article.user %> <%=time_ago_in_words(@article.created_at) %> ago, Edited By <%= @article.user.username if @article.user %> <%= time_ago_in_words(@article.updated_at) %> ago</p>
 				</div>
         </div>
     </div>
