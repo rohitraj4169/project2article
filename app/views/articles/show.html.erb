@@ -12,7 +12,6 @@
     </div>
  </div>
 <div class="container ">
-    <%=render 'layouts/message' %>
         <div class="card shadow mb-5 bg-white rounded text-center mb-5">
             <div class="card-header text-left">
 				<strong>Title:</strong> <%=@article.title %>
@@ -22,9 +21,9 @@
                     <strong>Description:</strong><%= simple_format(@article.description) %>
                 </div>
                 <p>
-                    <button type="button" class="btn btn-outline-success"><%=link_to 'Edit', edit_article_path(@article)%> </button>
-                    <button type="button" class="btn btn-outline-danger"><%=link_to 'Delete', article_path(@article), method: :delete, data:{confirm:"Are You Sure to Delete ?"}%> </button>
-                    <button type="button" class="btn btn-outline-success"><%=link_to 'Back', articles_path%> </button>
+                <%=link_to 'Edit', edit_article_path(@article), class:"btn btn-outline-success btn-lg "%>
+                <%=link_to 'Delete', article_path(@article), method: :delete, data:{confirm:"Are You Sure to Delete ?"}, class:"btn btn-outline-danger btn-lg "%>
+                <%=link_to 'Back', articles_path, class: "btn btn-outline-secondary btn-lg"%> </button>
                 </p>
                         
             </div>
