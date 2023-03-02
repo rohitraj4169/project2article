@@ -1,0 +1,51 @@
+
+<div class="w-100 row align-items-center breadcrumbb ml-0 mb-5">
+    <div class="offset-md-4 col-md-4 text-center">
+          <h1 class="text-center mt-4">Alpha Bloggers </h1>
+    </div>
+    <div class="col-md-4 text-right"> 
+        <span>
+            <span class="breadcrumb-item"><%= link_to 'Home', root_path %></span>
+		    <span class="breadcrumb-item active" aria-current="page">Bloggers </span>
+        <span>
+    </div>
+ </div>
+<div class="container">
+		<% @user.each do |user| %>
+			<div class="card shadow mb-5 bg-white rounded text-center mb-5">
+				<div class="card-header">
+					<%= link_to user.username , user %>
+				</div>
+				<div class="card-body">
+					<h5 class=" card-title">
+                         <%= link_to gravatar_for(user, size: 150), user %>
+                    </h2>
+					<p class="card-text">
+					    <%= user.email %>
+					</p>
+					<p class="card-text">
+						<%= pluralize(user.articles.count, "article")%>
+					</p>
+					<p>
+						<% if logged_in? && user == current_user %>
+							<%=link_to 'Edit Profile', edit_user_path(user), class:"btn btn-outline-success" %>
+						<% end %>
+						<%=link_to 'View Profile', user_path(user), class:"btn btn-outline-primary" %> 
+						
+					</p>
+					
+					
+
+			
+			
+				</div>
+				<div class="card-footer text-muted">
+					<p> Joined <%= time_ago_in_words(user.created_at) %> ago</p>
+					
+				</div>
+			</div>
+		<%end%>
+	</div>
+
+
+

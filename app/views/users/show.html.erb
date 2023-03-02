@@ -1,0 +1,20 @@
+
+<div class="w-100 row align-items-center breadcrumbb ml-0 mb-5">
+    <div class="offset-md-3 col-md-5 text-center">
+          <h1 class="text-center mt-4"> <%= @user.username%>'s profile </h1>
+    </div>
+    <div class="col-md-4 text-right"> 
+        <span>
+            <span class="breadcrumb-item"><%= link_to 'Home', root_path %></span>
+		    <span class="breadcrumb-item"><%= link_to 'Bloggers', users_path %></span>
+		    <span class="breadcrumb-item active" aria-current="page">Show Profile</span>
+        <span>
+    </div>
+ </div>
+ <%= gravatar_for @user, size: 200 %>
+ <div class="text-center mt-3 mb-">
+    <% if logged_in? && @user == current_user %>
+        <%= link_to "Edit your Profile", edit_user_path(@user),class:"btn btn-outline-info mb-4" %>
+    <% end %>
+<div>
+	<%= render 'articles/article' %>

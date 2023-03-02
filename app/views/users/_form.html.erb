@@ -26,7 +26,7 @@
 						<%= f.submit(@user.new_record? ? "Sign Up" : "Update Account", class:"btn btn-success btn-lg") %>
 					</div>
 					<div class="form-group  col-md-3  text-center">
-						<%= link_to 'Cancel', root_path,class:"btn btn-danger btn-lg" %>
+						<%= link_to 'Cancel', @user.new_record? ? root_path : :back,class:"btn btn-danger btn-lg" %>
 					</div>
 				</div>
 			<% end %>

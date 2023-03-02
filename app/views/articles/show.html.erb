@@ -21,8 +21,10 @@
                     <strong>Description:</strong><%= simple_format(@article.description) %>
                 </div>
                 <p>
-                <%=link_to 'Edit', edit_article_path(@article), class:"btn btn-outline-success btn-lg "%>
-                <%=link_to 'Delete', article_path(@article), method: :delete, data:{confirm:"Are You Sure to Delete ?"}, class:"btn btn-outline-danger btn-lg "%>
+                <% if logged_in? && @article.user == current_user %>
+                    <%=link_to 'Edit', edit_article_path(@article), class:"btn btn-outline-success btn-lg "%>
+                    <%=link_to 'Delete', article_path(@article), method: :delete, data:{confirm:"Are You Sure to Delete ?"}, class:"btn btn-outline-danger btn-lg "%>
+                <% end %>
                 <%=link_to 'Back', articles_path, class: "btn btn-outline-secondary btn-lg"%> </button>
                 </p>
                         
