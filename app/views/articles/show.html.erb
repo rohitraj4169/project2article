@@ -20,8 +20,11 @@
                 <div class="card-text text-left">
                     <strong>Description:</strong><%= simple_format(@article.description) %>
                 </div>
+                <% if @article.categories.any? %>
+            <div class="mt-2 card-text text-left"><%= render @article.categories %></div> 
+          <% end %>
                 <p>
-                <% if logged_in? && @article.user == current_user %>
+                <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
                     <%=link_to 'Edit', edit_article_path(@article), class:"btn btn-outline-success btn-lg "%>
                     <%=link_to 'Delete', article_path(@article), method: :delete, data:{confirm:"Are You Sure to Delete ?"}, class:"btn btn-outline-danger btn-lg "%>
                 <% end %>

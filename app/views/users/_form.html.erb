@@ -4,21 +4,21 @@
 			<%= render 'shared/errors', obj:@user %>
 			<%= form_with(model:@user, class:"shadow p-3 mb-3 bg-info rounded", local: true )do |f| %>
 				<div class="form-group row">
-					<%= f.label :username ,class:"col-2 col-form-label"%>
+					<%= f.label :username ,class:" required col-2 col-form-label"%>
 					<div class="col-10">
-						<%= f.text_field :username,class:"form-control shadow rounded",placeholder:"Enter user name" %>
+						<%= f.text_field :username,class:"form-control shadow rounded",placeholder:"Enter user name", required:true %>
 					</div>
 				</div>
                 <div class="form-group row">
-					<%= f.label :email,class:"col-2 col-form-label" %>
+					<%= f.label :email,class:" required col-2 col-form-label" %>
 					<div class="col-10">
-						<%= f.email_field :email,class:"form-control shadow rounded",placeholder:"Enter Your Email" %>
+						<%= f.email_field :email,class:"form-control shadow rounded",placeholder:"Enter Your Email", required:true %>
 					</div>
 				</div>
 				<div class="form-group row">
-					<%= f.label :password,class:"col-2 col-form-label" %>
+					<%= f.label :password,class:" required col-2 col-form-label" %>
 					<div class="col-10">
-						<%= f.password_field :password,class:"form-control shadow rounded",placeholder:"Enter Password" %>
+						<%= f.password_field :password,class:"form-control shadow rounded",placeholder:"Enter Password", required:true %>
 					</div>
 				</div>
 				<div class="row">
